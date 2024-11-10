@@ -1,4 +1,4 @@
-package com.nerdroom.mvc.myprojects;
+package com.myprojects.mvc.nerdroom;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
