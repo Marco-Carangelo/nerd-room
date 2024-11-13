@@ -9,7 +9,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Size;
 
-import java.util.Date;
+import java.time.Year; 
 
 import jakarta.persistence.Column;
 
@@ -39,7 +39,7 @@ public class Movie {
 	
 	@Past
 	@Column
-	private Date year;
+	private Year year;
 	
 	
 	//Getters and setters
@@ -76,11 +76,11 @@ public class Movie {
 		this.genre = genre;
 	}
 
-	public Date getYear() {
+	public Year getYear() {
 		return year;
 	}
 
-	public void setYear(Date year) {
+	public void setYear(Year year) {
 		this.year = year;
 	}
 	
