@@ -1,0 +1,1 @@
+INSERT INTO movies (title, description, genre, year ) VALUES('Kill Bill','Lorem Ipsum', 'Action/Martial Arts/Drama', 2004 ),('Scott Pilgrim Vs the World','Lorem Ipsum', 'Action/Comedy', 2010 ),('Profondo Rosso','Lorem Ipsum', 'Thriller/Giallo/Horror', 1975 )
