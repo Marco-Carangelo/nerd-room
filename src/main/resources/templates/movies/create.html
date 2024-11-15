@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+
+<html xmlns:th="http://www.thymeleaf.org">
+	
+<!--Head section incorporated by fragment-->
+<head th:insert="elements/fragments :: head(title = ${movie.title})"> </head>
+		
+<body class="bg-secondary">
+	
+	<!--HEADER WITH NAVBAR -->
+	<th:block th:replace="elements/navbar :: navbar"></th:block>
+
+	<!--START OF THE MAIN SECTION -->
+	<main>
+
+		<div class="container text-center ">
+			<div class="row bg-light p-3 d-flex flex-wrap gap-3 border border-black rounded" th:object="${movie}">
+				
+				<!--Page title  -->
+				<h1>Insert new movie</h1>
+				<hr>
+				
+				<form
+				id="form-movie"
+				th:object="${movie}"
+				th:action="@{/movies/create}"
+				method="POST">
+				
+				
+			</form>
+				
+				
+			</div>
+		</div>
+	</main>
+	<!--END OF THE MAIN SECTION -->
+
+
+	
+</body>
+</html>
