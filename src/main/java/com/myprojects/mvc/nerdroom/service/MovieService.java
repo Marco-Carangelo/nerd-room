@@ -17,5 +17,8 @@ public class MovieService {
 	public List<Movie> findMovies(){
 		return repo.findAll();
 	}
+	public Movie findMovieById(Integer id){
+		return repo.findById(id).get();
+	}
 
 }
