@@ -26,7 +26,7 @@
 				    <h5 class="card-title">[[*{title}]]</h5>
 				    <div class="card-text mb-2 "><strong>Genre: </strong>[[*{genre}]]</div>
 					<div class="card-text mb-2"><strong>Year: </strong>[[*{year}]]</div>
-				    <a href="#" class="btn btn-primary mt-auto d-inline-block me-auto">Details</a>
+				    <a th:href="@{/movies/{id}(id = *{id})}" class="btn btn-primary mt-auto d-inline-block me-auto">Details</a>
 				  </div>
 				</div>
 			</div>
