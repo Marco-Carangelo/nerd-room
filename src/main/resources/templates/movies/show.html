@@ -14,17 +14,19 @@
 	<main>
 
 		<div class="container text-center ">
-			<div class="row bg-light p-3 d-flex flex-wrap gap-3 border border-black rounded" th:object="${movie}">
+			<div class="row bg-light p-3 border border-black rounded" th:object="${movie}">
 				
 				<!--Page title  -->
 				<h1>[[*{title}]]</h1>
 				<hr>
 				<div class="col-3 text-start ps-3 border rounded">
+					<p><strong>Director: </strong>[[*{director}]]</p>	
 					<p><strong>Genre: </strong>[[*{genre}]]</p>		
 					<p><strong>Year: </strong>[[*{year}]]</p>				
 				</div>
 				<div class="col-8">
-					<p>[[${movie.description}]]</p>			
+					<p>[[${movie.description}]]</p>	
+					<a th:href="@{/movies/{id}(id = *{id})}" class="btn btn-primary mt-auto d-inline-block me-auto">Edit</a>
 				</div>
 				
 				
