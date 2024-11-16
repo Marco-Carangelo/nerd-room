@@ -18,6 +18,11 @@
 				
 				<!--Page title  -->
 				<h1>Movie List</h1>
+				<hr>
+				
+				<div class="text-start">
+					<a th:href="@{/movies/create}" class="btn btn-primary mt-auto d-inline-block me-auto">Insert new movie</a>
+				</div>
 				
 				<!--Individual media cards-->
 				<div class="card text-start" style="width: 18rem;" th:each="movie : ${movieList}" th:object="${movie}">
