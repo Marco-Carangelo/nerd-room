@@ -27,6 +27,10 @@ public class Movie {
 	@Column
 	private String title;
 	
+	@Size(min = 2, max = 50)
+	@NotBlank
+	@Column
+	private String director;
 	
 	@Size(min = 5, max = 1000)
 	@Column
@@ -82,6 +86,14 @@ public class Movie {
 
 	public void setYear(Year year) {
 		this.year = year;
+	}
+
+	public String getDirector() {
+		return director;
+	}
+
+	public void setDirector(String director) {
+		this.director = director;
 	}
 	
 	
