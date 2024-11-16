@@ -30,17 +30,17 @@
 						<!-- Movie title -->
 						<div class="mb-3">
 						  <label for="title" class="form-label">Title</label>
-						  <input type="text" class="form-control" id="title" placeholder="Insert movie title">
+						  <input type="text" class="form-control" id="title" placeholder="Insert movie title" th:field="*{title}">
 						</div>
 						<!-- Movie description -->
 						<div class="mb-3">
 						  <label for="description" class="form-label">Description</label>
-						  <textarea class="form-control" id="description" rows="3"></textarea>
+						  <textarea class="form-control" id="description" rows="3" th:field="*{description}"></textarea>
 						</div>
 						<!-- Movie year -->
 						<div class="mb-3">
 						  <label for="year" class="form-label">Date</label>
-						  <input type="date" class="form-control" id="year" placeholder="Insert movie year">
+						  <input type="date" class="form-control" id="year" placeholder="Insert movie year" th:field="*{year}">
 						</div>
 						<!--Submit, Reset and Back buttons -->			
 						<div class="d-flex mb-5">
@@ -49,9 +49,7 @@
 							<a class="btn btn-primary p-2 ms-auto mx-1" th:href="@{/movies}">Back</a>
 						</div>
 					</form>
-				</div>
-				
-				
+				</div>	
 			</div>
 		</div>
 	</main>
