@@ -24,7 +24,7 @@
 					<form
 					id="form-movie"
 					th:object="${movie}"
-					th:action="@{/movies/create}"
+					th:action="@{/movies/edit/{id}(id = ${movie.id})}"
 					method="POST">
 						
 						<!-- Movie title field -->
