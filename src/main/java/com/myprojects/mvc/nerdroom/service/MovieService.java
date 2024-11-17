@@ -21,4 +21,7 @@ public class MovieService {
 		return repo.findById(id).get();
 	}
 
+	public Movie createMovie(Movie movie) {
+		return repo.save(movie);
+	}
 }
