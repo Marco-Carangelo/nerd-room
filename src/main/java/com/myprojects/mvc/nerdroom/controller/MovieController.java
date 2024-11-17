@@ -85,6 +85,6 @@ public class MovieController {
 			Movie movie = movieService.findMovieById(id);
 			model.addAttribute("movie", movie);
 			
-			return "/movies/create";
+			return "/movies/edit";
 		}
 }
