@@ -30,4 +30,8 @@ public class MovieService {
 	public Movie updateMovie(Movie movie) {
 		return repo.save(movie);
 	}
+	
+	public void delteMovie(Integer id) {
+		repo.deleteById(id);
+	}
 }
