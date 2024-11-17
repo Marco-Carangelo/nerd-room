@@ -78,13 +78,35 @@ public class MovieController {
 	}
 	
 	//Update Methods
-		@GetMapping("/edit/{id}")
-		public String edit(Model model, @PathVariable("id") Integer id){
-			
-			//Add to model the required movie object
-			Movie movie = movieService.findMovieById(id);
-			model.addAttribute("movie", movie);
-			
+	@GetMapping("/edit/{id}")
+	public String edit(Model model, @PathVariable("id") Integer id){
+		
+		//Add to model the required movie object
+		Movie movie = movieService.findMovieById(id);
+		model.addAttribute("movie", movie);
+		
+		return "/movies/edit";
+	}
+	
+	@PostMapping("/edit/{id}")
+	public String update(
+			@Valid @ModelAttribute("movie") Movie formMovie,
+			BindingResult bindingResult,
+			Model model,
+			RedirectAttributes attributes,
+			@RequestParam(name = "yearValue") int yearValue) {
+		
+		//Set the given year as value of the Year object
+		Year formYear = Year.of(yearValue);
+		formMovie.setYear(formYear);
+		
+		//Check if the object has errors
+		if(bindingResult.hasErrors()) {
 			return "/movies/edit";
 		}
+		
+		movieService.createMovie(formMovie);
+		
+		return "redirect:/movies";
+	}
 }
