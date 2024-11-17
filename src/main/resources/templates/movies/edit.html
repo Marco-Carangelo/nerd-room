@@ -74,7 +74,7 @@
 						<!-- Movie year field -->
 						<div class="mb-3">
 						  <label for="year" class="form-label">Year</label>
-						  <input type="number" class="form-control" id="year" placeholder="Insert movie year" name="yearValue">
+						  <input type="number" class="form-control" id="year" placeholder="Insert movie year" name="yearValue" th:value="*{year}">
 						  <!-- Section used to display field errors -->
 						  <div th:if="${#fields.hasErrors('year')}" class="invalid-feedback d-block">
 		  						<ul>
