@@ -19,14 +19,17 @@
 				<!--Page title  -->
 				<h1>[[*{title}]]</h1>
 				<hr>
-				<div class="col-3 text-start ps-3 border rounded">
+				<div class="col-3 text-start ps-3 border rounded mb-3">
 					<p><strong>Director: </strong>[[*{director}]]</p>	
 					<p><strong>Genre: </strong>[[*{genre}]]</p>		
 					<p><strong>Year: </strong>[[*{year}]]</p>				
 				</div>
 				<div class="col-8">
 					<p>[[${movie.description}]]</p>	
-					<a th:href="@{/movies/{id}(id = *{id})}" class="btn btn-primary mt-auto d-inline-block me-auto">Edit</a>
+				</div>
+				<div class="text-end">
+					<a class="btn btn-primary me-2" th:href="@{/movies/edit/{id}(id = *{id})}" >Edit movie</a>
+					<a class="btn btn-primary" th:href="@{/movies}">Back</a>
 				</div>
 				
 				
