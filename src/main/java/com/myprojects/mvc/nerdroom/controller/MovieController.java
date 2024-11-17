@@ -44,11 +44,11 @@ public class MovieController {
 		return "/movies/show";
 	}
 	
-	//Create Method
+	//Create Methods
 	@GetMapping("/create")
 	public String create(Model model){
 		
-		//Add to model a black movie object
+		//Add to model a blank movie object
 		Movie movie = new Movie();
 		model.addAttribute("movie", movie);
 		
@@ -76,4 +76,15 @@ public class MovieController {
 		
 		return "redirect:/movies";
 	}
+	
+	//Update Methods
+		@GetMapping("/edit/{id}")
+		public String edit(Model model, @PathVariable("id") Integer id){
+			
+			//Add to model the required movie object
+			Movie movie = movieService.findMovieById(id);
+			model.addAttribute("movie", movie);
+			
+			return "/movies/create";
+		}
 }
