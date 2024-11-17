@@ -27,30 +27,60 @@
 					th:action="@{/movies/create}"
 					method="POST">
 						
-						<!-- Movie title -->
+						<!-- Movie title field -->
 						<div class="mb-3">
 						  <label for="title" class="form-label">Title</label>
 						  <input type="text" class="form-control" id="title" placeholder="Insert movie title" th:field="*{title}">
+						  <!-- Section used to display field errors -->
+						  <div th:if="${#fields.hasErrors('title')}" class="invalid-feedback d-block">
+		  						<ul>
+		  							<li class="alert alert-danger" th:each="err : ${#fields.errors('title')}" th:text="${err}"></li>
+		  						</ul>
+		  					</div>
 						</div>
-						<!-- Movie director -->
+						<!-- Movie director field -->
 						<div class="mb-3">
 						  <label for="director" class="form-label">Director</label>
 						  <input type="text" class="form-control" id="director" placeholder="Insert movie director" th:field="*{director}">
+						  <!-- Section used to display field errors -->
+  						  <div th:if="${#fields.hasErrors('director')}" class="invalid-feedback d-block">
+  		  						<ul>
+  		  							<li class="alert alert-danger" th:each="err : ${#fields.errors('director')}" th:text="${err}"></li>
+  		  						</ul>
+  		  					</div>
 						</div>
-						<!-- Movie genre -->
+						<!-- Movie genre field -->
 						<div class="mb-3">
 						  <label for="genre" class="form-label">Genre</label>
 						  <input type="text" class="form-control" id="genre" placeholder="Insert movie genre" th:field="*{genre}">
+						  <!-- Section used to display field errors -->
+    						  <div th:if="${#fields.hasErrors('genre')}" class="invalid-feedback d-block">
+    		  						<ul>
+    		  							<li class="alert alert-danger" th:each="err : ${#fields.errors('genre')}" th:text="${err}"></li>
+    		  						</ul>
+    		  					</div>
 						</div>
-						<!-- Movie description -->
+						<!-- Movie description field -->
 						<div class="mb-3">
 						  <label for="description" class="form-label">Description</label>
 						  <textarea class="form-control" id="description" rows="3" th:field="*{description}"></textarea>
+						  <!-- Section used to display field errors -->
+  						  <div th:if="${#fields.hasErrors('description')}" class="invalid-feedback d-block">
+  		  						<ul>
+  		  							<li class="alert alert-danger" th:each="err : ${#fields.errors('description')}" th:text="${err}"></li>
+  		  						</ul>
+  		  					</div>
 						</div>
-						<!-- Movie year -->
+						<!-- Movie year field -->
 						<div class="mb-3">
-						  <label for="year" class="form-label">Date</label>
+						  <label for="year" class="form-label">Year</label>
 						  <input type="number" class="form-control" id="year" placeholder="Insert movie year" name="yearValue">
+						  <!-- Section used to display field errors -->
+						  <div th:if="${#fields.hasErrors('year')}" class="invalid-feedback d-block">
+		  						<ul>
+		  							<li class="alert alert-danger" th:each="err : ${#fields.errors('year')}" th:text="${err}"></li>
+		  						</ul>
+		  					</div>
 						</div>
 						<!--Submit, Reset and Back buttons -->			
 						<div class="d-flex mb-5">
@@ -64,8 +94,6 @@
 		</div>
 	</main>
 	<!--END OF THE MAIN SECTION -->
-
-
 	
 </body>
 </html>
