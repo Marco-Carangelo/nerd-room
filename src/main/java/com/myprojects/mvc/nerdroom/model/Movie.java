@@ -6,7 +6,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Past;
+import jakarta.validation.constraints.PastOrPresent;
 import jakarta.validation.constraints.Size;
 
 import java.time.Year; 
@@ -41,7 +41,7 @@ public class Movie {
 	@Column
 	private String genre;
 	
-	@Past
+	@PastOrPresent
 	@Column
 	private Year year;
 	
