@@ -11,9 +11,11 @@ import com.myprojects.mvc.nerdroom.repository.MovieRepository;
 @Service
 public class MovieService {
 	
+	//Injection of the repository interface
 	@Autowired
 	private MovieRepository repo;
 	
+	//CRUD methods
 	public List<Movie> findMovies(){
 		return repo.findAll();
 	}
