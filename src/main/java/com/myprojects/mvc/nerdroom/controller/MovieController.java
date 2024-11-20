@@ -115,7 +115,7 @@ public class MovieController {
 	public String delete( @PathVariable("id") Integer id,
 			RedirectAttributes attributes) {
 			
-		movieService.delteMovie(id);
+		movieService.deleteMovie(id);
 		return "redirect:/movies";
 	}
 }
