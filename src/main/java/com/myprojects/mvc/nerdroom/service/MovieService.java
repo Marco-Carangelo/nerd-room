@@ -31,7 +31,7 @@ public class MovieService {
 		return repo.save(movie);
 	}
 	
-	public void delteMovie(Integer id) {
+	public void deleteMovie(Integer id) {
 		repo.deleteById(id);
 	}
 }
