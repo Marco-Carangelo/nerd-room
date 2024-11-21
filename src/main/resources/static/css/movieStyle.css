@@ -1,0 +1,13 @@
+body{
+	background-image: url("/img/background-img/curtains.jpg");
+	background-size: contain;
+		
+}
+
+h1{
+	font-family: "Train One", system-ui;
+ 	font-weight: 400;
+ 	font-style: normal;
+ 	color: burlywood;	
+ }
+
