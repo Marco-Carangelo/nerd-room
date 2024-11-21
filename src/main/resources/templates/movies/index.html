@@ -4,9 +4,12 @@
 	
 <!--Head section incorporated by fragment-->
 <head> 
+	<!--Fragment with head elements common in all pages-->
 	<div th:replace="elements/fragments :: head(title = 'Movies')" ></div>
 	<!--Link to stylesheet specific for this page-->
 	<link th:rel="stylesheet" th:href="@{/css/movieStyle.css}"/>
+	<!--Additional fragments-->
+	<div th:replace="elements/fragments :: train-one-font-link" ></div>
 </head>
 		
 <body>
