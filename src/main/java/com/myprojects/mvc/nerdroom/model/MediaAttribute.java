@@ -11,7 +11,7 @@ import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name = "attributes")
-public class Attribute {
+public class MediaAttribute {
 	
 	//Definition of the class attributes
 		@Id
