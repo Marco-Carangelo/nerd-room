@@ -1,6 +1,6 @@
 package com.myprojects.mvc.nerdroom.model;
 
-import java.util.Set;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -26,8 +26,8 @@ public class MediaAttribute {
 		@Column
 		private String name;
 		
-		@ManyToMany(mappedBy="media-attributes")
-		private Set<Media> medias;
+		@ManyToMany(mappedBy="mediaAttributes")
+		private List<Media> medias;
 
 		public Integer getId() {
 			return id;
