@@ -44,6 +44,14 @@ public class MediaAttribute {
 		public void setName(String name) {
 			this.name = name;
 		}
+
+		public List<Media> getMedias() {
+			return medias;
+		}
+
+		public void setMedias(List<Media> medias) {
+			this.medias = medias;
+		}
 		
 		
 
