@@ -82,6 +82,22 @@ public class Media {
 	public void setYear(Year year) {
 		this.year = year;
 	}
+
+	public String getEvalText() {
+		return evalText;
+	}
+
+	public void setEvalText(String evalText) {
+		this.evalText = evalText;
+	}
+
+	public List<MediaAttribute> getMediaAttributes() {
+		return mediaAttributes;
+	}
+
+	public void setMediaAttributes(List<MediaAttribute> mediaAttributes) {
+		this.mediaAttributes = mediaAttributes;
+	}
 	
 	
 
