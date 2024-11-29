@@ -1,6 +1,8 @@
 package com.myprojects.mvc.nerdroom.model;
 
 import java.time.Year;
+import java.util.HashMap;
+import java.util.Map;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.DiscriminatorColumn;
@@ -11,6 +13,10 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.MapKeyJoinColumn;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.PastOrPresent;
 import jakarta.validation.constraints.Size;
@@ -38,6 +44,19 @@ public class Media {
 	@PastOrPresent
 	@Column
 	private Year year;
+	
+	@Size(min = 5, max = 3000)
+	@Column
+	private String evalText;
+	
+	 @ManyToMany()
+	 @JoinTable(
+	      name = "media_media_attribute",
+	      joinColumns = @JoinColumn(name = "media_id"),
+	      inverseJoinColumns = @JoinColumn(name = "media-attribute_id")
+	   )
+	 @MapKeyJoinColumn(name="attribute")
+	 private Map<MediaAttribute,Integer> ratings = new HashMap<MediaAttribute,Integer>();
 	
 	//Getters and setters
 
