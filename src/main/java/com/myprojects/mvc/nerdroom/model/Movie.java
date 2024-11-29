@@ -13,12 +13,10 @@ public class Movie extends Media {
 	//Definition of the class attributes
 
 	@Size(min = 2, max = 50)
-	@NotBlank
 	@Column
 	private String director;
 	
 	@Size(min = 2, max = 50)
-	@NotBlank
 	@Column
 	private String genre;
 	
