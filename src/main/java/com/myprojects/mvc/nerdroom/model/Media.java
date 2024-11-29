@@ -3,6 +3,8 @@ package com.myprojects.mvc.nerdroom.model;
 import java.time.Year;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.DiscriminatorColumn;
+import jakarta.persistence.DiscriminatorType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -13,8 +15,10 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.PastOrPresent;
 import jakarta.validation.constraints.Size;
 
-@Entity
+@Entity(name = "medias")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "media_type",
+discriminatorType = DiscriminatorType.STRING)
 public class Media {
 	
 	//Class attributes
