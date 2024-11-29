@@ -1,16 +1,19 @@
 package com.myprojects.mvc.nerdroom.model;
 
+import java.util.Set;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
 @Entity
-@Table(name = "attributes")
+@Table(name = "media-attributes")
 public class MediaAttribute {
 	
 	//Definition of the class attributes
@@ -22,6 +25,9 @@ public class MediaAttribute {
 		@NotBlank
 		@Column
 		private String name;
+		
+		@ManyToMany(mappedBy="media-attributes")
+		private Set<Media> medias;
 
 		public Integer getId() {
 			return id;
