@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -59,6 +60,14 @@ public class MediaAttributeController {
 		
 		mediaAttributeService.createMediaAttribute(formMediaAttribute);
 		
+		return "redirect:/media-attributes";
+	}
+	
+	//Delete method
+	@PostMapping("/delete/{id}")
+	public String delete(@PathVariable("id") Integer id) {
+		
+		mediaAttributeService.deleteMediaAttribute(id);
 		return "redirect:/media-attributes";
 	}
 }
