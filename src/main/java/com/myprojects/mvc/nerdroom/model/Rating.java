@@ -30,11 +30,11 @@ public class Rating {
 	//Relationships
 	@ManyToOne
 	@JoinColumn(name = "media_id", nullable = false)
-	private Media media;
+	private Media medias;
 	
 	@ManyToOne
 	@JoinColumn(name = "media-attribute_id", nullable = false)
-	private MediaAttribute mediaAttribute;
+	private MediaAttribute mediaAttributes;
 
 	//Getters and Setters
 	public Integer getValue() {
