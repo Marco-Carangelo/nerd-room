@@ -23,6 +23,8 @@ public class Rating {
 	@JoinColumn(name = "media_id", nullable = false)
 	private Media media;
 	
-	
+	@ManyToOne
+	@JoinColumn(name = "media-attribute_id", nullable = false)
+	private MediaAttribute mediaAttribute;
 
 }
