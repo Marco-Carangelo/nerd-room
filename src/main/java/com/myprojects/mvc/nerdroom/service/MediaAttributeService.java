@@ -14,7 +14,14 @@ public class MediaAttributeService {
 	private MediaAttributeRepository repo;
 		
 	//Service methods
+	
+	//Create method
 	public MediaAttribute createMediaAttribute(MediaAttribute mediaAttribute) {
+		return repo.save(mediaAttribute);
+	}
+	
+	//Update method
+	public MediaAttribute updateMediaAttribute(MediaAttribute mediaAttribute) {
 		return repo.save(mediaAttribute);
 	}
 
