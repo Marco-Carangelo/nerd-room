@@ -3,6 +3,7 @@ package com.myprojects.mvc.nerdroom.model;
 import java.time.Year;
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.DiscriminatorColumn;
 import jakarta.persistence.DiscriminatorType;
@@ -15,6 +16,7 @@ import jakarta.persistence.InheritanceType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.PastOrPresent;
 import jakarta.validation.constraints.Size;
@@ -47,13 +49,9 @@ public class Media {
 	@Column
 	private String evalText;
 	
-	//ManyToMany relationships
-	@ManyToMany()
-	@JoinTable(
-			name = "media_media-attribute",
-			joinColumns = @JoinColumn(name = "media_id"),
-			inverseJoinColumns = @JoinColumn(name = "media-attribute_id"))
-	private List<MediaAttribute> mediaAttributes;
+	//Relationships
+	@OneToMany(mappedBy = "medias", cascade = {CascadeType.REMOVE})
+	private List<Rating> ratings;
 	
 	//Getters and setters
 
@@ -91,13 +89,14 @@ public class Media {
 		this.evalText = evalText;
 	}
 
-	public List<MediaAttribute> getMediaAttributes() {
-		return mediaAttributes;
+	public List<Rating> getRatings() {
+		return ratings;
 	}
 
-	public void setMediaAttributes(List<MediaAttribute> mediaAttributes) {
-		this.mediaAttributes = mediaAttributes;
+	public void setRatings(List<Rating> ratings) {
+		this.ratings = ratings;
 	}
+	
 	
 	
 
