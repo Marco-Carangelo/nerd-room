@@ -30,7 +30,7 @@ public class Rating {
 	//Relationships
 	@ManyToOne
 	@JoinColumn(name = "media_id", nullable = false)
-	private Media medias;
+	private Media media;
 	
 	@ManyToOne
 	@JoinColumn(name = "media-attribute_id", nullable = false)
@@ -54,11 +54,11 @@ public class Rating {
 	}
 
 	public MediaAttribute getMediaAttribute() {
-		return mediaAttribute;
+		return mediaAttributes;
 	}
 
 	public void setMediaAttribute(MediaAttribute mediaAttribute) {
-		this.mediaAttribute = mediaAttribute;
+		this.mediaAttributes = mediaAttribute;
 	}
 	
 

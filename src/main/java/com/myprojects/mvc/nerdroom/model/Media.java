@@ -50,7 +50,7 @@ public class Media {
 	private String evalText;
 	
 	//Relationships
-	@OneToMany(mappedBy = "medias", cascade = {CascadeType.REMOVE})
+	@OneToMany(mappedBy = "media", cascade = {CascadeType.REMOVE})
 	private List<Rating> ratings;
 	
 	//Getters and setters
