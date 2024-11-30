@@ -24,5 +24,10 @@ public class MediaAttributeService {
 	public MediaAttribute updateMediaAttribute(MediaAttribute mediaAttribute) {
 		return repo.save(mediaAttribute);
 	}
+	
+	//Delete method
+	public void deleteMediaAttribute(Integer id) {
+		repo.deleteById(id);
+	}
 
 }
