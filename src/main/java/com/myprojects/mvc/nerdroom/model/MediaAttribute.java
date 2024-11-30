@@ -26,8 +26,6 @@ public class MediaAttribute {
 		@Column
 		private String name;
 		
-		@ManyToMany(mappedBy="mediaAttributes")
-		private List<Media> medias;
 
 		public Integer getId() {
 			return id;
@@ -45,13 +43,6 @@ public class MediaAttribute {
 			this.name = name;
 		}
 
-		public List<Media> getMedias() {
-			return medias;
-		}
-
-		public void setMedias(List<Media> medias) {
-			this.medias = medias;
-		}
 		
 		
 
