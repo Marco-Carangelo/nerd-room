@@ -1,5 +1,7 @@
 package com.myprojects.mvc.nerdroom.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +16,11 @@ public class MediaAttributeService {
 	private MediaAttributeRepository repo;
 		
 	//Service methods
+	
+	//Index method
+	public List<MediaAttribute> findMediaAttributes(){
+		return repo.findAll();
+	}
 	
 	//Create method
 	public MediaAttribute createMediaAttribute(MediaAttribute mediaAttribute) {
