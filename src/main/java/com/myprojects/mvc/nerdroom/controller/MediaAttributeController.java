@@ -36,7 +36,7 @@ public class MediaAttributeController {
 	}
 	
 	//Create method
-	@PostMapping("/media-attributes")
+	@PostMapping("/create")
 	public String store(
 			@Valid @ModelAttribute("mediaAttribute") MediaAttribute formMediaAttribute,
 			BindingResult bindingResult,
@@ -55,7 +55,7 @@ public class MediaAttributeController {
 	}
 	
 	//Update method
-	@PostMapping("/media-attributes/{id}")
+	@PostMapping("/edit/{id}")
 	public String update(
 			@Valid @ModelAttribute("mediaAttribute") MediaAttribute formMediaAttribute,
 			BindingResult bindingResult,
