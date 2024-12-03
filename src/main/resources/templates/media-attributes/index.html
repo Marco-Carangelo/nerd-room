@@ -20,10 +20,23 @@
 			
 			<!--Page title  -->
 			<h1 class="mb-3">Media Attributes List</h1>
-
+			
+			<!--Container of the search bar and the create new attribute button -->
+			<div class="row py-3 g-3">
+				<div class="col-auto">
+					<button type="button" class="btn btn-dark btn-lg">Create new attribute</button>
+				</div>
+				<div class="col-auto ms-auto">
+					<span>Search: </span>
+				</div>
+				<div class="col-auto">
+					<form>
+						<input type="text" class="form-control" id="attributeSearch">
+					</form>
+				</div>
+			</div>
+			
 			<div class=" p-3 d-flex flex-wrap gap-3 border border-warning rounded">
-		
-				
 				<!--Individual media cards-->
 				<span class="badge rounded-pill text-bg-dark d-inline-flex px-3"  th:each="attribute : ${mediaAttributesList}" th:object="${attribute}">
 				  
