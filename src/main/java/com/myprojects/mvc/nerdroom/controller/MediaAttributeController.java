@@ -54,24 +54,6 @@ public class MediaAttributeController {
 		return "redirect:/media-attributes";
 	}
 	
-	//Update method
-	@PostMapping("/edit/{id}")
-	public String update(
-			@Valid @ModelAttribute("mediaAttribute") MediaAttribute formMediaAttribute,
-			BindingResult bindingResult,
-			Model model,
-			RedirectAttributes attributes
-			) {
-		
-		//Check if the object has errors
-		if(bindingResult.hasErrors()) {
-			return "/media-attributes";
-		}
-		
-		mediaAttributeService.createMediaAttribute(formMediaAttribute);
-		
-		return "redirect:/media-attributes";
-	}
 	
 	//Delete method
 	@PostMapping("/delete/{id}")
