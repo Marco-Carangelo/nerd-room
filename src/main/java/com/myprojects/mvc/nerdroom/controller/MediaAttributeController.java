@@ -29,9 +29,11 @@ public class MediaAttributeController {
 	//Index method
 	@GetMapping
 	public String index(Model model) {
-		
+		//Add to model the list of all attributes
 		model.addAttribute("mediaAttributesList", mediaAttributeService.findMediaAttributes());
-		
+		//Add to model a blank attribute object for new attribute creation
+		MediaAttribute newAttribute = new MediaAttribute();
+		model.addAttribute("newAttribute",newAttribute);
 		return "/media-attributes/index";
 	}
 	
