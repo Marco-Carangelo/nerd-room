@@ -30,9 +30,10 @@
 				<div class="col-auto ms-auto">
 					<span class="fs-4">Search: </span>
 				</div>
-				<div class="col-auto">
-					<form>
-						<input type="text" class="form-control" id="attributeSearch">
+				<div class="col-auto" >
+					<form class=" d-inline-flex g-1" th:action="@{/media-attributes}" method="GET" id="mediaAttributeSearch">
+						<input type="text" class="form-control" id="searchAttribute" name="searchAttribute">
+						<button type="submit" class="btn btn-dark"><i class="fa-solid fa-magnifying-glass"></i></button>
 					</form>
 				</div>
 			</div>
