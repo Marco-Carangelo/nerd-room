@@ -25,9 +25,24 @@
 			<!--Page title  -->
 			<h1 class="mb-3">Movie List</h1>
 			
-			<div class="text-center mb-4">
-				<a th:href="@{/movies/create}" class="btn btn-outline-warning mt-auto d-inline-block me-auto">Insert new movie</a>
+			<!--Container of the search bar and the create new attribute button -->
+			<div class="row py-3 px-4 g-3">
+				<div class="col-auto">
+					<!-- Button that trigger the create modal -->
+					<a th:href="@{/movies/create}" class="btn btn-outline-warning mt-auto d-inline-block me-auto">Insert new movie</a>
+				</div>
+				<div class="col-auto ms-auto">
+					<span class="fs-4">Search: </span>
+				</div>
+				<div class="col-auto" >
+					<form class=" d-inline-flex g-1" th:action="@{/movie}" method="GET" >
+						<input type="text" class="form-control" id="searchMovie" name="searchMovie">
+						<button type="submit" class="btn btn-dark"><i class="fa-solid fa-magnifying-glass"></i></button>
+					</form>
+				</div>
 			</div>
+			
+		
 
 			<div class="row p-3 d-flex justify-content-evenly flex-wrap gap-3 border border-warning rounded elements-container ">
 		
