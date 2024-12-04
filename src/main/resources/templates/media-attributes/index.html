@@ -22,12 +22,13 @@
 			<h1 class="mb-3">Media Attributes List</h1>
 			
 			<!--Container of the search bar and the create new attribute button -->
-			<div class="row py-3 g-3">
+			<div class="row py-3 px-4 g-3">
 				<div class="col-auto">
-					<button type="button" class="btn btn-dark btn-lg">Create new attribute</button>
+					<!-- Button that trigger the create modal -->
+					<button type="button" class="btn btn-dark btn-lg" data-bs-toggle="modal" th:data-bs-target="'#create-modal'">Create new attribute</button>
 				</div>
 				<div class="col-auto ms-auto">
-					<span>Search: </span>
+					<span class="fs-4">Search: </span>
 				</div>
 				<div class="col-auto">
 					<form>
@@ -69,6 +70,30 @@
 		</div>
 	</main>
 	<!--END OF THE MAIN SECTION -->
+	
+	<!-- Create modal -->
+	<div class="modal fade text-black" th:id="'create-modal'" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h2 class="modal-title fs-5" id="staticBackdropLabel">Create new attribute</h2>
+	        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+	      </div>
+		  <form class="d-inline-block"
+		   th:object="${newAttribute}"
+		   th:action="@{/media-attributes/create}" 
+		   method="POST">
+		      <div class="modal-body bg-dark">
+				<input type="text" class="form-control px-2" id="attributeName" th:field="*{name}" placeholder="Insert attribute name" >
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+				<button type="submit" class="btn btn-warning btn-sm " >Subimit</button>	
+	    	  </div>
+		  </form>
+	    </div>
+	  </div>
+	</div>
 
 	<!--Scripts fragment -->
 	<div th:insert="elements/fragments :: scripts">	</div>
