@@ -32,20 +32,19 @@
 					<a th:href="@{/movies/create}" class="btn btn-outline-warning mt-auto d-inline-block me-auto">Insert new movie</a>
 				</div>
 				<div class="col-auto ms-auto">
-					<span class="fs-4">Search: </span>
+					<span class="fs-4 text-white">Search: </span>
 				</div>
 				<div class="col-auto" >
 					<form class=" d-inline-flex g-1" th:action="@{/movie}" method="GET" >
-						<input type="text" class="form-control" id="searchMovie" name="searchMovie">
-						<button type="submit" class="btn btn-dark"><i class="fa-solid fa-magnifying-glass"></i></button>
+						<input type="text" class="form-control" id="searchMovie" name="searchMovie" placeholder="Insert movie title">
+						<button type="submit" class="btn btn-dark border border-warning ms-1"><i class="fa-solid fa-magnifying-glass"></i></button>
 					</form>
 				</div>
 			</div>
 			
 		
-
+			<!-- Container of the individual media objects-->
 			<div class="row p-3 d-flex justify-content-evenly flex-wrap gap-3 border border-warning rounded elements-container ">
-		
 				
 				<!--Individual media cards-->
 				<div class="card text-start border border-warning" style="width: 18rem;" th:each="movie : ${movieList}" th:object="${movie}">
