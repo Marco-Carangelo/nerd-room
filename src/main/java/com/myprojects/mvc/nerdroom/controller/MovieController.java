@@ -29,9 +29,14 @@ public class MovieController {
 	
 	//Index Method
 	@GetMapping
-	public String index(Model model ) {
+	public String index(Model model, @RequestParam(name = "searchMovie", required = false) String searchMovie ) {
 		
-		model.addAttribute("movieList", movieService.findMovies());
+		if( searchMovie != null && !searchMovie.isEmpty()) {
+			model.addAttribute("movieList", movieService.findMovieByTitle(searchMovie));
+		}else {
+			model.addAttribute("movieList", movieService.findMovies());
+		}
+		
 		return "/movies/index";
 		
 	}
