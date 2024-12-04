@@ -57,9 +57,9 @@
 						<div class="card-text mb-2"><strong>Year: </strong>[[*{year}]]</div>	
 					</div>
 					<div class="d-flex justify-content-between px-1">
-						<a th:href="@{/movies/{id}(id = *{id})}" class="btn btn-primary ">Details</a>
+						<a th:href="@{/movies/{id}(id = *{id})}" class="btn btn-dark border border-warning">Details</a>
 						<!-- Button that trigger the delete modal -->
-						<a type="button" class="btn btn-danger" data-bs-toggle="modal" th:data-bs-target="'#delete-modal' + ${movie.id}">Delete</a>
+						<a type="button" class="btn btn-dark border border-warning" data-bs-toggle="modal" th:data-bs-target="'#delete-modal' + ${movie.id}">Delete</a>
 				  </div>
 				  <!-- Delete modal -->
 					<div class="modal fade" th:id="'delete-modal' + ${movie.id}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
