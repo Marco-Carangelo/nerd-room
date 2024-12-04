@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.myprojects.mvc.nerdroom.model.MediaAttribute;
@@ -28,7 +29,7 @@ public class MediaAttributeController {
 	
 	//Index method
 	@GetMapping
-	public String index(Model model) {
+	public String index(Model model, @RequestParam( name = "searchAttribute", required = false) String searchAttribute) {
 		//Add to model the list of all attributes
 		model.addAttribute("mediaAttributesList", mediaAttributeService.findMediaAttributes());
 		//Add to model a blank attribute object for new attribute creation
