@@ -36,5 +36,10 @@ public class MediaAttributeService {
 	public void deleteMediaAttribute(Integer id) {
 		repo.deleteById(id);
 	}
+	
+	//Method to find media attributes by name
+	public List<MediaAttribute> findMediaAttributesByName(String text){
+		return repo.findByNameStartingWithIgnoreCase(text);
+	}
 
 }
