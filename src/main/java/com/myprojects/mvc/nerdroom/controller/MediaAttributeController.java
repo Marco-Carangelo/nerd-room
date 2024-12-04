@@ -30,8 +30,14 @@ public class MediaAttributeController {
 	//Index method
 	@GetMapping
 	public String index(Model model, @RequestParam( name = "searchAttribute", required = false) String searchAttribute) {
+		
 		//Add to model the list of all attributes
-		model.addAttribute("mediaAttributesList", mediaAttributeService.findMediaAttributes());
+		if (searchAttribute != null && !searchAttribute.isEmpty()) {
+			model.addAttribute("mediaAttributesList", mediaAttributeService.findMediaAttributesByName(searchAttribute));
+		}else {
+			model.addAttribute("mediaAttributesList", mediaAttributeService.findMediaAttributes());
+		}
+		
 		//Add to model a blank attribute object for new attribute creation
 		MediaAttribute newAttribute = new MediaAttribute();
 		model.addAttribute("newAttribute",newAttribute);
