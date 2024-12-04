@@ -34,4 +34,9 @@ public class MovieService {
 	public void deleteMovie(Integer id) {
 		repo.deleteById(id);
 	}
+	
+	//Method to find movie by substring
+	public List<Movie> findMovieByTitle(String text){
+		return repo.findByTitleContainsIgnoreCase(text);
+	}
 }
