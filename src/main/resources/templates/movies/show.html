@@ -30,10 +30,31 @@
 					<p><strong>Year: </strong>[[*{year}]]</p>				
 				</div>
 				<hr>
+				
 				<!--Section with media rating  -->
-				<div class="col-10 ">
-					<p>[[${movie.description}]]</p>	
+				<div class="col-10 mx-auto pb-3">
+					<h3>Rate this movie</h3>
+					<p>[[${movie.rateText}]]</p>	
 				</div>
+				<div class="col-10 mx-auto pb-3" th:if="${movie.rateText == null}">
+					<form 
+					id="form-movie"
+						th:object="${movie}"
+						th:action="@{/movies/edit/{id}(id = ${movie.id})}"
+						method="POST">
+						<!--Field for movie comment -->
+						<div class="mb-3">
+						  <label for="rateTextArea" class="form-label">Add a comment to this movie</label>
+						  <textarea class="form-control" id="rateTextArea" rows="5" placeholder="Insert comment here..." th:field="*{rateText}"></textarea>
+						</div>
+						<!--Submit and Reset buttons -->			
+						<div class="d-flex mb-5">
+							<button type="submit" class="btn btn-primary p-2 mx-1">Submit</button>
+							<button type="reset" class="btn btn-danger p-2 mx-1">Reset</button>
+						</div>
+					</form>					
+				</div>
+				
 				
 				
 				
