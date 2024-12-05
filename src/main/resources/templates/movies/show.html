@@ -19,15 +19,24 @@
 				<!--Page title  -->
 				<h1>[[*{title}]]</h1>
 				<hr>
+				<!--Section with media description  -->
+				<div class="col-9 px-4">
+					<p>[[${movie.description}]]</p>	
+				</div>
+				<!--Section with media info  -->
 				<div class="col-3 text-start ps-3 border rounded mb-3">
 					<p><strong>Director: </strong>[[*{director}]]</p>	
 					<p><strong>Genre: </strong>[[*{genre}]]</p>		
 					<p><strong>Year: </strong>[[*{year}]]</p>				
 				</div>
-				<div class="col-8">
+				<hr>
+				<!--Section with media rating  -->
+				<div class="col-10 ">
 					<p>[[${movie.description}]]</p>	
 				</div>
-				<hr>
+				
+				
+				
 				<div class="text-end">
 					<a class="btn btn-primary me-2" th:href="@{/movies/edit/{id}(id = *{id})}" >Edit movie</a>
 					<a class="btn btn-primary" th:href="@{/movies}">Back</a>
