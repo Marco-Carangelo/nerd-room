@@ -36,6 +36,7 @@
 					<h3>Rate this movie</h3>
 					<p>[[${movie.rateText}]]</p>	
 				</div>
+				<!--Section with movie valutation comment  -->
 				<div class="col-10 mx-auto pb-3" th:if="${movie.rateText == null}">
 					<form 
 					id="form-movie"
@@ -60,9 +61,14 @@
 						</div>
 					</form>					
 				</div>
-				
-				
-				
+				<!-- Ratings list  -->
+				<div>
+					
+				</div>
+				<!-- Add a new rating  -->
+				<div>
+									
+				</div>
 				
 				<div class="text-end">
 					<a class="btn btn-primary me-2" th:href="@{/movies/edit/{id}(id = *{id})}" >Edit movie</a>
