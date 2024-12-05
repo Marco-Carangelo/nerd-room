@@ -44,7 +44,7 @@ public class Media {
 	
 	@Size(min = 5, max = 3000)
 	@Column
-	private String evalText;
+	private String rateText;
 	
 	//Relationships
 	@OneToMany(mappedBy = "media", cascade = {CascadeType.REMOVE})
@@ -78,12 +78,12 @@ public class Media {
 		this.year = year;
 	}
 
-	public String getEvalText() {
-		return evalText;
+	public String getRateText() {
+		return rateText;
 	}
 
-	public void setEvalText(String evalText) {
-		this.evalText = evalText;
+	public void setRateText(String evalText) {
+		this.rateText = evalText;
 	}
 
 	public List<Rating> getRatings() {
