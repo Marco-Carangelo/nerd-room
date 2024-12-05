@@ -42,11 +42,17 @@
 						th:object="${movie}"
 						th:action="@{/movies/edit/{id}(id = ${movie.id})}"
 						method="POST">
-						<!--Field for movie comment -->
+						<!--Field for movie valutation comment -->
 						<div class="mb-3">
 						  <label for="rateTextArea" class="form-label">Add a comment to this movie</label>
 						  <textarea class="form-control" id="rateTextArea" rows="5" placeholder="Insert comment here..." th:field="*{rateText}"></textarea>
 						</div>
+						<!--Hidden fields-->
+						<input type="hidden" class="form-control" id="title" th:field="*{title}" />
+						<input type="hidden" class="form-control" id="director" th:field="*{director}" />
+						<input type="hidden" class="form-control" id="genre" th:field="*{genre}" />
+						<input type="hidden" class="form-control" id="description" rows="3" th:field="*{description}" />
+						<input type="hidden" class="form-control" id="year" name="yearValue" th:value="*{year}">
 						<!--Submit and Reset buttons -->			
 						<div class="d-flex mb-5">
 							<button type="submit" class="btn btn-primary p-2 mx-1">Submit</button>
