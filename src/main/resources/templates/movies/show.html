@@ -62,11 +62,14 @@
 					</form>					
 				</div>
 				<!-- Ratings list  -->
-				<div>
-					
+				<div class="col-10 mx-auto pb-3 d-flex">
+					<div class="col-5" th:each="rating : ${movie.ratings}">
+						<span class="fs-4">[[${rating.mediaAttribute.name}]]</span>
+						<span class="badge text-bg-danger">[[${rating.value}]]/100</span>
+					</div>
 				</div>
 				<!-- Add a new rating  -->
-				<div>
+				<div class="col-10 mx-auto pb-3">
 									
 				</div>
 				
