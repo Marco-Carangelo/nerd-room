@@ -119,7 +119,7 @@ public class MovieController {
 			return "/movies/edit";
 		}
 		
-		movieService.createMovie(formMovie);
+		movieService.updateMovie(formMovie);
 		
 		return "redirect:/movies";
 	}
@@ -132,4 +132,6 @@ public class MovieController {
 		movieService.deleteMovie(id);
 		return "redirect:/movies";
 	}
+	
+	
 }
