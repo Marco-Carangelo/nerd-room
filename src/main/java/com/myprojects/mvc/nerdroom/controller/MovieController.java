@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.myprojects.mvc.nerdroom.model.Movie;
+import com.myprojects.mvc.nerdroom.service.MediaAttributeService;
 import com.myprojects.mvc.nerdroom.service.MovieService;
 
 import jakarta.validation.Valid;
@@ -26,6 +27,8 @@ public class MovieController {
 	//Service classes
 	@Autowired
 	private MovieService movieService;
+	@Autowired 
+	private MediaAttributeService mediaAttributeService;
 	
 	//Index Method
 	@GetMapping
@@ -45,7 +48,13 @@ public class MovieController {
 	@GetMapping("/{id}")
 	public String show(Model model, @PathVariable("id") Integer id ) {
 		
+		//Add the required movie to the model
 		model.addAttribute("movie", movieService.findMovieById(id));
+		
+		//Add the list of all media attributes to the model
+		//Used to create the rating 
+		model.addAttribute("attributeList", mediaAttributeService.findMediaAttributes());
+		
 		return "/movies/show";
 	}
 	
