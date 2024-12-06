@@ -18,4 +18,11 @@ public class RatingService {
 	public Rating createRating(Rating rating) {
 		return repo.save(rating);
 	}
+	
+	//Update method
+	public Rating updateRating(Rating rating) {
+		return repo.save(rating);
+	}
+	
+	
 }
