@@ -39,7 +39,23 @@ public class RatingController {
 	}
 	
 	//Update method
+	@PostMapping("/edit/{id}")
+	public String update(
+			@Valid @ModelAttribute("rating") Rating formRating,
+			BindingResult bindingResult,
+			Model model,
+			RedirectAttributes attributes
+			) {
+		
+		//Check if the formRating object has not errors and update the Rating before to return to the media page
+		if(!bindingResult.hasErrors()) {	
+			ratingService.createRating(formRating);
+		}
+		return "movies/" + formRating.getMedia().getId();
+	}
+	
 	
 	//Delete method
+
 
 }
