@@ -24,5 +24,8 @@ public class RatingService {
 		return repo.save(rating);
 	}
 	
-	
+	//Delete method
+	public void deleteRating(Integer id) {
+		repo.deleteById(id);
+	}
 }
