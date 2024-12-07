@@ -14,8 +14,8 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
 @Entity
-@Table(name = "attribute-categories")
-public class AttributeCategory {
+@Table(name = "categories")
+public class Category {
 
 	//Definition of the class attributes
 	@Id
@@ -29,7 +29,7 @@ public class AttributeCategory {
 	
 	//Relationship mapping fields
 	
-	@OneToMany(mappedBy = "attribute-categories", cascade = {CascadeType.REMOVE})
+	@OneToMany(mappedBy = "category", cascade = {CascadeType.REMOVE})
 	private List<MediaAttribute> mediaAttributes;
 	
 
