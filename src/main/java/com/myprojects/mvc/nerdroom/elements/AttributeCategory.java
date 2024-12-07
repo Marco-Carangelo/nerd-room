@@ -9,6 +9,7 @@ public enum AttributeCategory {
 	INTROSPECTION,
 	FEELINGS,
 	ACTING,
-	OTHERS
+	OTHERS,
+	SOUNDTRACK
 
 }
