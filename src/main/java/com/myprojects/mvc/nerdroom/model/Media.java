@@ -46,7 +46,8 @@ public class Media {
 	@Column
 	private String rateText;
 	
-	//Relationships
+	//Relationships mapping fields
+	
 	@OneToMany(mappedBy = "media", cascade = {CascadeType.REMOVE})
 	private List<Rating> ratings;
 	
