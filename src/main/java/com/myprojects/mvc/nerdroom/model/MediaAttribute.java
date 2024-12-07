@@ -29,8 +29,8 @@ public class MediaAttribute {
 	//Relationship mapping fields
 	
 	@ManyToOne
-	@JoinColumn(name = "media-attribute_id", nullable = false)
-	private AttributeCategory category;
+	@JoinColumn(name = "category_id", nullable = false)
+	private Category category;
 	
 	
 	public Integer getId() {
@@ -49,11 +49,11 @@ public class MediaAttribute {
 		this.name = name;
 	}
 	
-	public AttributeCategory getCategory() {
+	public Category getCategory() {
 		return category;
 	}
 	
-	public void setCategory(AttributeCategory category) {
+	public void setCategory(Category category) {
 		this.category = category;
 	}
 	
