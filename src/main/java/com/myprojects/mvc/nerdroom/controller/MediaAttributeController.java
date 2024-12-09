@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.myprojects.mvc.nerdroom.model.MediaAttribute;
+import com.myprojects.mvc.nerdroom.service.CategoryService;
 import com.myprojects.mvc.nerdroom.service.MediaAttributeService;
 
 import jakarta.validation.Valid;
@@ -24,6 +25,9 @@ public class MediaAttributeController {
 	//Service Classes
 	@Autowired
 	private MediaAttributeService mediaAttributeService;
+	
+	@Autowired
+	private CategoryService categoryService;
 	
 	//CRUD methods
 	
@@ -41,6 +45,9 @@ public class MediaAttributeController {
 		//Add to model a blank attribute object for new attribute creation
 		MediaAttribute newAttribute = new MediaAttribute();
 		model.addAttribute("newAttribute",newAttribute);
+		//Add to the model the attribute categories list
+		model.addAttribute("categories", categoryService.findCategories());
+	
 		return "/media-attributes/index";
 	}
 	
@@ -55,7 +62,7 @@ public class MediaAttributeController {
 		
 		//Check if the object has errors
 		if(bindingResult.hasErrors()) {
-			return "/media-attributes";
+			return "redirect:/media-attributes";
 		}
 		
 		mediaAttributeService.createMediaAttribute(formMediaAttribute);
