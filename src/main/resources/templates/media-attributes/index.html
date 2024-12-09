@@ -84,9 +84,15 @@
 		   th:object="${newAttribute}"
 		   th:action="@{/media-attributes/create}" 
 		   method="POST">
+		 	  <!-- Field for the new attribute name -->
 		      <div class="modal-body bg-dark">
 				<input type="text" class="form-control px-2" id="attributeName" th:field="*{name}" placeholder="Insert attribute name" >
 		      </div>
+			  <!-- Field for the new attribute category -->
+			  <select class="form-select" aria-label="Default select example" th:field="*{category}">
+			    <option selected value="#">Select the category</option>
+			    <option th:each="category : ${categories}" th:value="${category.id}">[[${category.name}]]</option>
+			  </select>
 		      <div class="modal-footer">
 		        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
 				<button type="submit" class="btn btn-warning btn-sm " >Subimit</button>	
