@@ -34,19 +34,26 @@
 				<!--Section with media rating  -->
 				<div class="col-10 mx-auto pb-3">
 					<h3>Rate this movie</h3>
-					<p>[[${movie.rateText}]]</p>	
 				</div>
-				<!--Section with movie valutation comment  -->
-				<div class="col-10 mx-auto pb-3" th:if="${movie.rateText == null}">
+				<div class="col-10 mx-auto pb-3">
+					<!--Section with movie valutation comment  -->
+					<div th:unless="${movie.rateText == null}" >
+						<div class="text-end">
+							<button class="btn fs-4 ms-auto"><i class="fas fa-edit"></i></button>
+						</div>
+						<p class="text-start">[[${movie.rateText}]]</p>	
+					</div>
+					<!--Form for the movie comment  -->
 					<form 
-					id="form-movie"
+						th:classappend="${!(movie.rateText == null) && !(movie.rateText.isEmpty()) ? 'visually-hidden' : ''}"
+						id="form-movie"
 						th:object="${movie}"
 						th:action="@{/movies/edit/{id}(id = ${movie.id})}"
 						method="POST">
 						<!--Field for movie valutation comment -->
 						<div class="mb-3">
-						  <label for="rateTextArea" class="form-label">Add a comment to this movie</label>
-						  <textarea class="form-control" id="rateTextArea" rows="5" placeholder="Insert comment here..." th:field="*{rateText}"></textarea>
+						  	<label for="rateTextArea" class="form-label">Add a comment to this movie</label>
+							<textarea class="form-control" id="rateTextArea" rows="5" placeholder="Insert comment here..." th:field="*{rateText}"></textarea>
 						</div>
 						<!--Hidden fields-->
 						<input type="hidden" class="form-control" id="title" th:field="*{title}" />
@@ -70,7 +77,13 @@
 				</div>
 				<!-- Add a new rating  -->
 				<div class="col-10 mx-auto pb-3">
-									
+					<p>Select an attribute that you want to rate for this movie</p>
+					<form>
+						<input list="attributes">
+						<select class="form-select" id="attributes">
+						  <option th:each="attribute : ${attributeList}" th:value="${attribute.name}">[[${attribute.name}]]</option>
+						</select> 
+					</form>		
 				</div>
 				
 				<div class="text-end">
