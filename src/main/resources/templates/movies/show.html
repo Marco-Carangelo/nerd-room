@@ -39,7 +39,9 @@
 					<!--Section with movie valutation comment  -->
 					<div th:unless="${movie.rateText == null}" id="comment-display">
 						<div class="text-end">
-							<button type="button" class="btn  btn-secondary fs-4 ms-auto" id="edit-btn"><i class="fas fa-edit"></i></button>
+							<button type="button" class="btn btn-secondary fs-4" id="edit-btn">
+								<i class="fas fa-edit"></i>
+							</button>
 						</div>
 						<p class="text-start">[[${movie.rateText}]]</p>	
 					</div>
@@ -98,7 +100,7 @@
 	<!--END OF THE MAIN SECTION -->
 
 	<!-- Scripts-->
-	
+	<script type="text/javascript" th:src="@{/js/movies/movieShowScript.js}"></script>
 	
 </body>
 </html>
