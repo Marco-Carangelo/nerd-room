@@ -37,9 +37,9 @@
 				</div>
 				<div class="col-10 mx-auto pb-3">
 					<!--Section with movie valutation comment  -->
-					<div th:unless="${movie.rateText == null}" >
+					<div th:unless="${movie.rateText == null}" id="comment-display">
 						<div class="text-end">
-							<button class="btn fs-4 ms-auto"><i class="fas fa-edit"></i></button>
+							<button type="button" class="btn  btn-secondary fs-4 ms-auto" id="edit-btn"><i class="fas fa-edit"></i></button>
 						</div>
 						<p class="text-start">[[${movie.rateText}]]</p>	
 					</div>
@@ -97,7 +97,8 @@
 	</main>
 	<!--END OF THE MAIN SECTION -->
 
-
+	<!-- Scripts-->
+	
 	
 </body>
 </html>
