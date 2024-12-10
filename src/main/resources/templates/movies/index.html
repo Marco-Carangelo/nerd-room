@@ -48,7 +48,10 @@
 				
 				<!--Individual media cards-->
 				<div class="card text-start border border-warning" style="width: 18rem;" th:each="movie : ${movieList}" th:object="${movie}">
-				  <img src="https://picsum.photos/200" class="card-img-top px-3 pt-3 " alt="...">
+					<a th:href="@{/movies/{id}(id = *{id})}">
+						<img src="https://picsum.photos/200" class="card-img-top px-3 pt-3 " alt="...">
+					</a>
+
 				  <div class="card-body d-flex flex-column justify-content-between">
 				    <h5 class="card-title">[[*{title}]]</h5>
 					<div>
