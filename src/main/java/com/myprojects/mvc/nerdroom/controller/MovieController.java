@@ -121,7 +121,7 @@ public class MovieController {
 		
 		movieService.updateMovie(formMovie);
 		
-		return "redirect:/movies";
+		return "redirect:/movies/" + formMovie.getId();
 	}
 	
 	//Delete method
