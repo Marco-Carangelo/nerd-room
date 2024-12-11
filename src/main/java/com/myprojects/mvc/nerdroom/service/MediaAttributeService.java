@@ -41,5 +41,10 @@ public class MediaAttributeService {
 	public List<MediaAttribute> findMediaAttributesByName(String text){
 		return repo.findByNameStartingWithIgnoreCase(text);
 	}
+	
+	//Method to find media attributes by category id
+	public List<MediaAttribute> findMediaAtributesByCategory(Integer id){
+		return repo.findByCategoryId(id);
+	}
 
 }
