@@ -11,5 +11,7 @@ public interface MediaAttributeRepository extends JpaRepository<MediaAttribute, 
 	
 	//Repository custom methods
 	public List<MediaAttribute> findByNameStartingWithIgnoreCase(String text);
+	
+	public List<MediaAttribute> findByCategoryId(Integer id);
 
 }
