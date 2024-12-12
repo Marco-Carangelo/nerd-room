@@ -81,6 +81,7 @@
 				<div class="col-10 mx-auto pb-3">
 					<p>Select an attributes that you want to rate for this movie</p>
 					<p class="text-start">Search by name or browse by category</p>
+
 					<!-- Section containing all the attribute search elements  -->
 					<div class="row">
 						<!-- Category select  -->
@@ -90,21 +91,21 @@
 							  <option th:each="category : ${categoryList}" th:value="${category.id}">[[${category.name}]]</option>
 							</select>
 						</div >
-						<!-- Attribute select -->
-						<div class="col-auto  mx-2" id="attribute-select">
-							<select class="form-select" aria-label="Default select example">
+						<!--  Attribute select   -->
+						<div class="col-auto  mx-2 visually-hidden" id="attribute-field"  >
+							<select th:each="category : ${categoryList}" class="form-select visually-hidden" th:id="|category-individual-${category.id}|" >
 							  <option selected>Select the attribute</option>
-							  <option value="1">One</option>
+							  <option th:each="attribute : ${category.mediaAttributes}" th:value="${attribute.id}" th:id="|attribute-select-${category.id}|" >[[${attribute.name}]]</option>
 							</select>					
 						</div>
 						<div class="col-auto  mx-2">
 							Or
 						</div>
-						<!-- Attribute search by name  -->
+						<!-- Attribute search by name    -->
 						<div class="col-auto  mx-2">
 							<input list="attributes-search" placeholder="Search by name...">
 							<datalist id="attributes-search">
-							  <option th:each="attribute : ${attributeList}" th:value="${attribute.name}">[[${attribute.name}]]</option>
+							  <option th:each="attribute : ${attributeList}" th:value="${attribute.id}">[[${attribute.name}]]</option>
 							</datalist> 
 						</div>
 					</div>
