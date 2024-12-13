@@ -1,5 +1,6 @@
 package com.myprojects.mvc.nerdroom.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -19,6 +20,7 @@ import jakarta.validation.Valid;
 public class RatingController {
 	
 	//Service classes
+	@Autowired
 	private RatingService ratingService;
 	
 	//CRUD methods
@@ -36,10 +38,10 @@ public class RatingController {
 			) {
 		
 		//Check if the formRating object has not errors and save the Rating before to return to the media page
-		if(!bindingResult.hasErrors()) {	
+		if(!bindingResult.hasErrors()) {
 			ratingService.createRating(formRating);
 		}
-		return "movies/" + formRating.getMedia().getId();
+		return "redirect:/movies/" + formRating.getMedia().getId();
 	}
 	
 	//Update method
@@ -55,7 +57,7 @@ public class RatingController {
 		if(!bindingResult.hasErrors()) {	
 			ratingService.createRating(formRating);
 		}
-		return "movies/" + formRating.getMedia().getId();
+		return "redirect:/movies/" + formRating.getMedia().getId();
 	}
 	
 	
