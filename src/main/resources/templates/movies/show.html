@@ -103,9 +103,9 @@
 						</div>
 						<!-- Attribute search by name -->
 						<div class="col-auto  mx-2">
-							<input list="attributes-search" placeholder="Search by name...">
+							<input class="form-control" list="attributes-search" placeholder="Search by name..." id="datalist-input">
 							<datalist id="attributes-search">
-							  <option th:each="attribute : ${attributeList}" th:value="${attribute.id}">[[${attribute.name}]]</option>
+							  <option th:each="attribute : ${attributeList}" th:name="${attribute.name}" th:data-id="${attribute.id}">[[${attribute.name}]]</option>
 							</datalist> 
 						</div>
 					</div>
