@@ -8,6 +8,8 @@ const formMovie = document.getElementById('form-movie');
 const categorySelect = document.getElementById('category-select');
 const attributeSelect = document.getElementById('attribute-select');
 const attributeField = document.getElementById('attribute-field'); 
+const datalistInput = document.getElementById('datalist-input');
+const attributesSearch = document.getElementById('attributes-search')
 let lastSelectedCategory = 0;
 
 ////Function to change visibility to paragraph and text area of the comment section when the edit button is clicked
@@ -42,13 +44,30 @@ categorySelect.addEventListener('change', function(event){
 	
 	
 	attributeField.addEventListener("change", function(e){
+		//Get the value of the id and the text from select element
 		const selectionId = selectedCat.value;
 		const selectionTxt = selectedCat.options[selectedCat.selectedIndex].text;
 		//console.log(selectionTxt);
-		document.getElementById("attribute-readonly").value = selectionTxt;
-		
-		document.getElementById("rating-attribute-id").value = selectionId;
+		setRatingForm(selectionTxt, selectionId);
 		
 		e.stopPropagation();
 	});
 });
+
+//Function to pass the searched by datalist attribute to the Rating creation form
+datalistInput.addEventListener('change', function(){
+
+	//Get the value of the datalist input
+	const selectionTxt = datalistInput.value;
+	//Get the id of the datalist input
+	const selectionId = attributesSearch.options.namedItem(datalistInput.value).dataset.id
+	
+	setRatingForm(selectionTxt, selectionId);
+	
+})
+
+//Function to set readonly attribute name and mediaAttribute id fields in the rating create form
+function setRatingForm(txt, id){
+	document.getElementById("attribute-readonly").value = txt;	
+	document.getElementById("rating-attribute-id").value = id;
+}
