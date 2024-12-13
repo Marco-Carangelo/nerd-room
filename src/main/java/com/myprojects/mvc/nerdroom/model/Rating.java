@@ -34,9 +34,17 @@ public class Rating {
 	
 	@ManyToOne
 	@JoinColumn(name = "media-attribute_id", nullable = false)
-	private MediaAttribute mediaAttributes;
+	private MediaAttribute mediaAttribute;
 
 	//Getters and Setters
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	
 	public Integer getValue() {
 		return value;
 	}
@@ -54,11 +62,11 @@ public class Rating {
 	}
 
 	public MediaAttribute getMediaAttribute() {
-		return mediaAttributes;
+		return mediaAttribute;
 	}
 
 	public void setMediaAttribute(MediaAttribute mediaAttribute) {
-		this.mediaAttributes = mediaAttribute;
+		this.mediaAttribute = mediaAttribute;
 	}
 	
 
