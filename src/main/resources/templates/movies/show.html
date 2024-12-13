@@ -37,7 +37,7 @@
 				</div>
 				<div class="col-10 mx-auto pb-3">
 					<!--Section with movie valutation comment  -->
-					<div th:unless="${movie.rateText == null}" id="comment-display">
+					<div th:classappend="${(movie.rateText == null) || (movie.rateText.isEmpty()) ? 'visually-hidden' : ''}" id="comment-display">
 						<div class="text-end">
 							<button type="button" class="btn btn-secondary " id="edit-btn">
 								<i class="fas fa-edit"></i>
