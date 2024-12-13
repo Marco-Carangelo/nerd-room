@@ -83,7 +83,7 @@
 					<p class="text-start">Search by name or browse by category</p>
 
 					<!-- Section containing all the attribute search elements  -->
-					<div class="row">
+					<div class="row mb-3">
 						<!-- Category select  -->
 						<div class="col-auto me-2">
 							<select class="form-select" id="category-select" >
@@ -95,13 +95,13 @@
 						<div class="col-auto  mx-2 visually-hidden" id="attribute-field"  >
 							<select th:each="category : ${categoryList}" class="form-select visually-hidden" th:id="|category-individual-${category.id}|" >
 							  <option selected>Select the attribute</option>
-							  <option th:each="attribute : ${category.mediaAttributes}" th:value="${attribute.id}" th:id="|attribute-select-${category.id}|" >[[${attribute.name}]]</option>
+							  <option th:each="attribute : ${category.mediaAttributes}" th:value="${attribute.id}" th:id="|attribute-select-${category.id}|" th:data-mc-name="${attribute.name}" >[[${attribute.name}]]</option>
 							</select>					
 						</div>
 						<div class="col-auto  mx-2">
 							Or
 						</div>
-						<!-- Attribute search by name    -->
+						<!-- Attribute search by name -->
 						<div class="col-auto  mx-2">
 							<input list="attributes-search" placeholder="Search by name...">
 							<datalist id="attributes-search">
@@ -109,8 +109,35 @@
 							</datalist> 
 						</div>
 					</div>
-					<form>
-						
+					<!-- Form to create the rating  -->
+					<form
+					id="form-rating"
+					th:object="${rating}"
+					th:action="@{/ratings/create}"
+					method="POST"
+					>
+						<div class="row g-3">
+							<!-- Readonly field with attribute name  -->
+							<div class="col-auto">
+								<input class="form-control" type="text" id="attribute-readonly" readonly></span>						
+							</div>
+							<!-- Value field  -->
+							<div class="col-auto">
+								<input type="number" min="0" max="100" th:field="*{value}" id="rating-value" name="rating-value"  >
+							</div>
+							<!-- Submit button  -->
+							<div class="col-auto">
+								<button type="submit" class="btn btn-secondary">Submit</button>						
+							</div>
+							<!-- Hidden fields  -->
+							<div class="visually-hidden">
+								<select class="form-select" th:field="*{media.id}" id="rating-media-id">
+									<option  th:value="${movie.id}" selected>*</option>
+								</select>
+								<input class="form-control" th:field="*{mediaAttribute.id}"  id="rating-attribute-id" readonly >
+							</div>
+							
+						</div>
 					</form>		
 				</div>
 				
