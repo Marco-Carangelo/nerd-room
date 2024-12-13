@@ -32,9 +32,23 @@ categorySelect.addEventListener('change', function(event){
 		document.getElementById('category-individual-' + lastSelectedCategory ).classList.add('visually-hidden');
 	}
 		
-	//Get the selected category value(id) and put it in a string
+	//Get the selected category value(id)
 	const categoryId = categorySelect.value;
+	//Get the id of the select relative to the selected category and turn it visible
 	const selectedCat = document.getElementById('category-individual-' + categoryId ); 
 	selectedCat.classList.remove('visually-hidden');
+	//Store the id of the category as the last selection of the user
 	lastSelectedCategory = categoryId;
-})
+	
+	
+	attributeField.addEventListener("change", function(e){
+		const selectionId = selectedCat.value;
+		const selectionTxt = selectedCat.options[selectedCat.selectedIndex].text;
+		//console.log(selectionTxt);
+		document.getElementById("attribute-readonly").value = selectionTxt;
+		
+		document.getElementById("rating-attribute-id").value = selectionId;
+		
+		e.stopPropagation();
+	});
+});
