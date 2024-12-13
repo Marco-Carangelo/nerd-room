@@ -12,15 +12,15 @@ const datalistInput = document.getElementById('datalist-input');
 const attributesSearch = document.getElementById('attributes-search')
 let lastSelectedCategory = 0;
 
-////Function to change visibility to paragraph and text area of the comment section when the edit button is clicked
-//editBtn.addEventListener('click', function(event){
-//	event.preventDefault();
-//	
-//	//Hide the paragraph element and show the form with textarea to consent the text editing
-//	commentDisplay.classList.add('visually-hidden');
-//	formMovie.classList.remove('visually-hidden');
-//	
-//})
+//Function to change visibility to paragraph and text area of the comment section when the edit button is clicked
+editBtn.addEventListener('click', function(event){
+	event.preventDefault();
+	
+	//Hide the paragraph element and show the form with textarea to consent the text editing
+	commentDisplay.classList.add('visually-hidden');
+	formMovie.classList.remove('visually-hidden');
+	
+})
 
 //Function change visibility to the attribute select and to populate it with option matching the selected id
 categorySelect.addEventListener('change', function(event){
