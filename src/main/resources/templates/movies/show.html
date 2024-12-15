@@ -75,6 +75,28 @@
 					<div class="col-4 py-2" th:each="rating : ${movie.ratings}">
 						<span class="fs-4">[[${rating.mediaAttribute.name}]]</span>
 						<span class="badge text-bg-danger fs-5">[[${rating.value}]]/100</span>
+						<!-- Button that trigger the delete modal -->
+						<a type="button" class="btn btn-dark btn-sm" data-bs-toggle="modal" th:data-bs-target="'#delete-modal' + ${rating.id}"><i class="fa-solid fa-trash"></i></a>	 
+					  <!-- Delete modal -->
+						<div class="modal fade text-black" th:id="'delete-modal' + ${rating.id}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+						  <div class="modal-dialog">
+						    <div class="modal-content">
+						      <div class="modal-header">
+						        <h2 class="modal-title fs-5" id="staticBackdropLabel">Delete rating</h2>
+						        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						      </div>
+						      <div class="modal-body">
+						      	Do you want to delete the rating?
+						      </div>
+						      <div class="modal-footer">
+						        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+								<form class="d-inline-block" th:action="@{/ratings/delete/{id}(id=${rating.id})}" method="POST">
+									<button type="submit" class="btn btn-warning btn-sm " >Delete</button>	
+								</form>
+						      </div>
+						    </div>
+						  </div>
+						</div>
 					</div>
 				</div>
 				<!-- Add a new rating  -->
@@ -154,6 +176,7 @@
 
 	<!-- Scripts-->
 	<script type="text/javascript" th:src="@{/js/movies/movieShowScript.js}"></script>
+	<div th:insert="elements/fragments :: scripts">	</div>
 	
 </body>
 </html>
