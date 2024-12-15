@@ -68,7 +68,7 @@ public class RatingController {
 			
 			ratingService.deleteRating(id);
 			
-		return "/movies/" + id;
+		return "redirect:/movies/" + id;
 		
 	}
 
