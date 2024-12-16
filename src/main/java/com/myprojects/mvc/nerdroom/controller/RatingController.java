@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.myprojects.mvc.nerdroom.model.Rating;
@@ -64,11 +65,12 @@ public class RatingController {
 	//Delete method
 	@PostMapping("/delete/{id}")
 	public String delete( @PathVariable("id") Integer id,
-			RedirectAttributes attributes) {
+			RedirectAttributes attributes,
+			@RequestParam(name = "movieId") String movieId ) {
 			
 			ratingService.deleteRating(id);
 			
-		return "redirect:/movies/" + id;
+		return "redirect:/movies/" + movieId;
 		
 	}
 
