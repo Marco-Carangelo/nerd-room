@@ -91,6 +91,7 @@
 						      <div class="modal-footer">
 						        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
 								<form class="d-inline-block" th:action="@{/ratings/delete/{id}(id=${rating.id})}" method="POST">
+									<input type="hidden" th:value="${movie.id}" name="movieId">
 									<button type="submit" class="btn btn-warning btn-sm " >Delete</button>	
 								</form>
 						      </div>
